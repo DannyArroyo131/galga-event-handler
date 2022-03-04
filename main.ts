@@ -1,3 +1,8 @@
+enum ActionKind {
+    Walking,
+    Idle,
+    Jumping
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
@@ -78,24 +83,26 @@ forever(function () {
 })
 game.onUpdateInterval(500, function () {
     Alien = sprites.create(img`
-        . . . . . . . . c c c c . . . . 
-        . . . . c c c c c c c c c . . . 
-        . . . c f c c a a a a c a c . . 
-        . . c c f f f f a a a c a a c . 
-        . . c c a f f c a a f f f a a c 
-        . . c c a a a a b c f f f a a c 
-        . c c c c a c c b a f c a a c c 
-        c a f f c c c a b b 6 b b b c c 
-        c a f f f f c c c 6 b b b a a c 
-        c a a c f f c a 6 6 b b b a a c 
-        c c b a a a a b 6 b b a b b a . 
-        . c c b b b b b b b a c c b a . 
-        . . c c c b c c c b a a b c . . 
-        . . . . c b a c c b b b c . . . 
-        . . . . c b b a a 6 b c . . . . 
-        . . . . . . b 6 6 c c . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . 7 . . . . . . . . . . . . . . 
+        . 7 7 . . . . . . . . . 7 7 . . 
+        . . 7 7 7 . . . . . . 7 . 7 . . 
+        . . . . 7 7 7 7 7 7 7 . . . . . 
+        . . . . . 7 f 7 f 7 . . . . . . 
+        . . . . . 7 f 7 f 7 . . . . . . 
+        . . . . . 7 7 f 7 7 . . . . . . 
+        . . . . . 7 7 f 7 7 . . . . . . 
+        . . . . 7 7 7 7 7 7 7 7 . . . . 
+        . . . 7 . . . . . . . 7 7 . . . 
+        . 7 7 . . . . . . . . . 7 7 . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
     Alien.setVelocity(-100, 0)
     Alien.setPosition(160, 0)
     Alien.setPosition(160, randint(0, 120))
+    scaling.scaleByPixels(Alien, randint(20, 50), ScaleDirection.Horizontally, ScaleAnchor.Middle)
+    scaling.scaleToPixels(Alien, randint(20, 50), ScaleDirection.Vertically, ScaleAnchor.Middle)
 })
