@@ -26,6 +26,9 @@ info.onCountdownEnd(function () {
         game.over(false, effects.slash)
     }
 })
+function StartGame () {
+    return "Hello" + "" + "Space Traveler" + ""
+}
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     music.knock.play()
     Alien.destroy(effects.disintegrate, 100)
@@ -68,6 +71,8 @@ let Alien: Sprite = null
 let projectile: Sprite = null
 let spacePlane: Sprite = null
 Spaceship(spacePlane)
+let Beginning = StartGame()
+game.splash(Beginning)
 forever(function () {
     music.playMelody("C5 B A A B A A B ", 120)
 })
