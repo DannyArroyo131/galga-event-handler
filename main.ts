@@ -17,15 +17,24 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, spacePlane, 200, 0)
+    music.pewPew.play()
+})
+info.onCountdownEnd(function () {
+    if (100 < info.score()) {
+        game.over(true, effects.confetti)
+    } else {
+        game.over(false, effects.slash)
+    }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    Alien.destroy()
-    Alien.destroy(effects.fire, 500)
+    music.knock.play()
+    Alien.destroy(effects.disintegrate, 100)
     info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    Alien.destroy(effects.spray, 500)
     info.changeLifeBy(-1)
+    music.bigCrash.play()
+    pause(5000)
 })
 function Spaceship (MySpaceShip: Sprite) {
     spacePlane = sprites.create(img`
