@@ -2,14 +2,24 @@
     "name": "Galga event handler",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "sprite-scaling": "*",
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.1",
+        "Sprite Grid": "github:microsoft/arcade-grid#v1.3.0",
+        "controller": "*",
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#6cfbf925b9a4d5ddf3e1078e6cf6ca6a1aebb301",
+        "radio-broadcast": "*",
+        "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24"
     },
     "files": [
         "main.blocks",
         "main.ts",
         "README.md",
         "assets.json",
-        "main.py"
+        "main.py",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
     ],
     "testFiles": [
         "test.ts"

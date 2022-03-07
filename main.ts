@@ -1,3 +1,6 @@
+controller.combos.attachCombo("" + controller.combos.idToString(controller.combos.ID.up) + controller.combos.idToString(controller.combos.ID.up) + controller.combos.idToString(controller.combos.ID.down) + controller.combos.idToString(controller.combos.ID.down) + controller.combos.idToString(controller.combos.ID.left) + controller.combos.idToString(controller.combos.ID.right) + controller.combos.idToString(controller.combos.ID.left) + controller.combos.idToString(controller.combos.ID.right) + controller.combos.idToString(controller.combos.ID.A) + controller.combos.idToString(controller.combos.ID.B), function () {
+    game.over(true)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
@@ -50,7 +53,6 @@ function Spaceship (MySpaceShip: Sprite) {
         ....................
         ....................
         `, SpriteKind.Player)
-    controller.moveSprite(spacePlane, 100, 100)
     spacePlane.setStayInScreen(true)
     info.setLife(3)
     info.startCountdown(30)
